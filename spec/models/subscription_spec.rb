@@ -7,9 +7,9 @@ RSpec.describe 'Model tests', type: :model do
       # tea = Tea.create(title: 'Earl Grey', description: 'Berry and fruit flavors.', temperature: 145.50, brew_time: 6)
       # subscription = customer.subscriptions.create!(title: 'ABC Tea Company', price: 20.50, status: 'active', frequency: 'monthly', tea_id: tea.id )
       it { should validate_presence_of :title }
-      it { should validate_presence_of :description }
-      it { should validate_presence_of :temperature }
-      it { should validate_presence_of :brew_time }
+      it { should validate_presence_of :price }
+      it { should validate_presence_of :status }
+      it { should validate_presence_of :frequency }
     end 
   end
 end
