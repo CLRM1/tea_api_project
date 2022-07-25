@@ -10,6 +10,11 @@ RSpec.describe 'Model tests', type: :model do
       it { should validate_presence_of :price }
       it { should validate_presence_of :status }
       it { should validate_presence_of :frequency }
-    end 
+    end
+    
+    describe 'Associations' do
+      it { should belong_to :tea} 
+      it { should belong_to :customer} 
+    end
   end
 end
