@@ -11,5 +11,9 @@ RSpec.describe 'Model tests', type: :model do
       it { should validate_presence_of :temperature }
       it { should validate_presence_of :brew_time }
     end 
+
+    describe 'Associations' do
+      it { belong_to :customer }
+    end
   end
 end
