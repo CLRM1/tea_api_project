@@ -1,0 +1,3 @@
+class SubscriptionSerializer
+  
+end
