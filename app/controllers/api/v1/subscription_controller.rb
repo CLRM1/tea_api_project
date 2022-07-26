@@ -1,7 +1,7 @@
 class Api::V1::SubscriptionController < ApplicationController
 
   def create
-    Subscription.create!(title: params[:title], 
+    Subscription.create(title: params[:title], 
                          price: params[:price], 
                          status: params[:status], 
                          frequency: params[:frequency], 
