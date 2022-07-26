@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Subscription API' do
-  it 'should subscribre a customer to a tea subscription' do
+  it 'should subscribe a customer to a tea subscription' do
     Customer.destroy_all
     tea = Tea.create(title: 'Earl Grey', description: 'Berry and fruit flavors.', temperature: 145.50, brew_time: 6)
     customer = Customer.create!(first_name: "Sophie", last_name: "Romero", email: "sophie@mail.com", address: "101 Main St. Denver, CO")
