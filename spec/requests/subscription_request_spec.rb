@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Subscription API' do
-  # An endpoint to subscribe a customer to a tea subscription
   it 'should subscribre a customer to a tea subscription' do
     Customer.destroy_all
     tea = Tea.create(title: 'Earl Grey', description: 'Berry and fruit flavors.', temperature: 145.50, brew_time: 6)
     customer = Customer.create!(first_name: "Sophie", last_name: "Romero", email: "sophie@mail.com", address: "101 Main St. Denver, CO")
+    customer_1 = Customer.create!(first_name: "John", last_name: "Romero", email: "john@mail.com", address: "1505 South St. Denver, CO")
     
     headers = {
       'Content-Type': 'application/json',
@@ -25,5 +25,6 @@ RSpec.describe 'Subscription API' do
     expect(subscriptions.first.status).to eq('active')
     expect(subscriptions.first.frequency).to eq('monthly')
     expect(subscriptions.first.tea_id).to eq(tea.id)
+    expect(customer_1.subscriptions.count).to eq(0)
   end 
 end
