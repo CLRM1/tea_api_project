@@ -6,7 +6,7 @@ class Api::V1::SubscriptionController < ApplicationController
   end
 
   def cancel
-    subscription = Subscription.where(title: params[:title]).first
+    subscription = Subscription.where(title: params[:title], customer_id: params[:customer_id]).first
     subscription.update(subscription_params)
     subscription.save
     render json: {data: "Subscription cancelled"},  status: 200
