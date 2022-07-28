@@ -63,17 +63,17 @@ RSpec.describe 'Subscription API' do
     customer = Customer.create(first_name: "Sophie", last_name: "Romero", email: "sophie@mail.com", address: "101 Main St. Denver, CO")
     customer_1 = Customer.create(first_name: "John", last_name: "Romero", email: "john@mail.com", address: "1505 South St. Denver, CO")
     subscription = customer.subscriptions.create(title: "ABC Tea Company: Monthly Earl Grey", price: 20.50, status: "active", frequency: "monthly", tea_id: tea.id)
-    subscription_1 = customer.subscriptions.create(title: "Whole Tea Company: Weekly Green", price: 17.50, status: "active", frequency: "weekly", tea_id: tea_1.id)
+    subscription_1 = customer.subscriptions.create(title: "Whole Tea Company: Weekly Green", price: 17.50, status: "cancelled", frequency: "weekly", tea_id: tea_1.id)
 
     
     get "/api/v1/customers/#{customer.id}/subscriptions"
     
     subscriptions = Customer.first.subscriptions
-
+    
     expect(response.status).to eq(200)
-    expect(response.body).to have_content('Earl Grey') 
-    expect(response.body).to have_content('Green') 
-    expect(subscriptions.first.status).to eq('cancelled')
+    expect(response.body).to include("ABC Tea Company: Monthly Earl Grey") 
+    expect(response.body).to include("Whole Tea Company: Weekly Green" ) 
     expect(subscriptions.first.status).to eq('active')
+    expect(subscriptions[1].status).to eq('cancelled')
   end
 end

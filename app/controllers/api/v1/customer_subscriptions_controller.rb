@@ -1,5 +1,6 @@
 class Api::V1::CustomerSubscriptionsController < ApplicationController
   def show
-    Subscription.where(customer_id: params[:customer_id])
+   subscriptions = Subscription.where(customer_id: params[:id])
+   render json: CustomerSubscriptionsSerializer.format_subscriptions(subscriptions), status: 200
   end
 end
