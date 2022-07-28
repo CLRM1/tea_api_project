@@ -119,4 +119,21 @@ RSpec.describe 'Subscription API' do
     expect(response.status).to eq(400)
     expect(response.body).to include("Error: missing attribute(s)")
   end
+
+  it 'should return a 404 error when the customer is not found' do
+    Customer.destroy_all
+    tea = Tea.create(title: 'Earl Grey', description: 'Berry and fruit flavors.', temperature: 145.50, brew_time: 6)
+    customer = Customer.create(first_name: "Sophie", last_name: "Romero", email: "sophie@mail.com", address: "101 Main St. Denver, CO")
+    customer_1 = Customer.create(first_name: "John", last_name: "Romero", email: "john@mail.com", address: "1505 South St. Denver, CO")
+    subscription = customer.subscriptions.create(title: "ABC Tea Company: Monthly Earl Grey", price: 20.50, status: "active", frequency: "monthly", tea_id: tea.id)
+    
+    headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+      }
+    
+    get "/api/v1/customers/3/subscriptions"
+    expect(response.status).to eq(404)
+    expect(response.body).to include("Error: customer not found")
+  end
 end
