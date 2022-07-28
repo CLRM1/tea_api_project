@@ -6,7 +6,6 @@ class Api::V1::SubscriptionController < ApplicationController
   end
 
   def cancel
-    Subscription.where(title: params[:title]).first
     subscription = Subscription.where(title: params[:title]).first
     subscription.update(subscription_params)
     subscription.save
