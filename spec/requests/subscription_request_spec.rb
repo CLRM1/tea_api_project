@@ -40,7 +40,7 @@ RSpec.describe 'Subscription API' do
       'Accept': 'application/json'
       }
 
-    body = { "title": "ABC Tea Company: Monthly Earl Grey", "price": "20.50", "status": "cancelled", "frequency": "monthly", "tea_id": tea.id, "customer_id": customer.id }
+    body = { "title": "ABC Tea Company: Monthly Earl Grey", "status": "cancelled", "customer_id": customer.id }
     
     put '/api/v1/subscriptions', headers: headers, params: JSON.generate(body)
     
