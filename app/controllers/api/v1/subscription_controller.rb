@@ -1,12 +1,18 @@
 class Api::V1::SubscriptionController < ApplicationController
 
   def create
-    Subscription.create(subscription_params)
+   subscription = Subscription.create(subscription_params)
+   
+   if subscription.id != nil
     render json: {data: "Subscription added"},  status: 201
+   else
+    render json: {data: "Error: missing attribute(s)"}, status: 400
+   end
   end
 
   def cancel
     subscription = Subscription.where(title: params[:title], customer_id: params[:customer_id]).first
+
     if subscription
       subscription.update(subscription_params)
       subscription.save
