@@ -2,7 +2,7 @@
 
 The Tea API project is a take home challenge from the Turing School of Software and Design. It allows requests for creating, listing and cancelling tea subscriptions. 
 
-[Swagger Documentation](https://app.swaggerhub.com/apis/CLRM1/Tea_Subscription_API/1.0.0)
+[Swagger Documentation](https://app.swaggerhub.com/apis-docs/CLRM1/Tea_Subscription_API/1.0.0)
 
 [Hosted API](https://agile-retreat-10950.herokuapp.com/api/v1/customers/1/subscriptions)
 
