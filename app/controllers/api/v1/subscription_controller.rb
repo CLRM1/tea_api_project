@@ -7,9 +7,13 @@ class Api::V1::SubscriptionController < ApplicationController
 
   def cancel
     subscription = Subscription.where(title: params[:title], customer_id: params[:customer_id]).first
-    subscription.update(subscription_params)
-    subscription.save
-    render json: {data: "Subscription cancelled"},  status: 200
+    if subscription
+      subscription.update(subscription_params)
+      subscription.save
+      render json: {data: "Subscription cancelled"},  status: 200
+    else
+      render json: {data: "Error: subscription not found"}, status: 404
+    end
   end
 
   private
