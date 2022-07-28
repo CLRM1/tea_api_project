@@ -4,6 +4,8 @@ The Tea API project is a take home challenge from the Turing School of Software 
 
 [Swagger Documentation](https://app.swaggerhub.com/apis/CLRM1/Tea_Subscription_API/1.0.0)
 
+[Hosted API](https://agile-retreat-10950.herokuapp.com/api/v1/customers/1/subscriptions)
+
 ## Setup
 - `git clone`
 - `cd tea_api_project`
