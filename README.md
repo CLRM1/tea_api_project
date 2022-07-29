@@ -15,7 +15,7 @@ The Tea API project is a take home challenge from the Turing School of Software 
 
 ## Requests
 
-POST localhost:3000/api/v1/subscriptions
+`POST localhost:3000/api/v1/subscriptions`
 - Body: 
 - `{ "title": "Z Tea Company", "status": "cancelled", "frequency": "monthly", "tea_id": "1", "customer_id": "1" }`
 - Response:
@@ -27,7 +27,7 @@ POST localhost:3000/api/v1/subscriptions
 ```
 
 
-PUT localhost:3000/api/v1/subscriptions
+`PUT localhost:3000/api/v1/subscriptions`
 - Body: 
 - `{ "title": "Z Tea Company", "status": "cancelled", "customer_id": "1" }`
 - Response:
@@ -38,7 +38,7 @@ PUT localhost:3000/api/v1/subscriptions
 
 ```
 
-GET localhost:3000/api/v1/customers/1/subscriptions
+`GET localhost:3000/api/v1/customers/1/subscriptions`
 
 - Response:
 ``` json
