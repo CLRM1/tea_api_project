@@ -10,6 +10,7 @@ The Tea API project is a take home challenge from the Turing School of Software 
 - `git clone`
 - `cd tea_api_project`
 - `bundle`
+- `rails db:{create, migrate, seed}`
 - `rails s`
 - Make a request
 
